@@ -1,10 +1,41 @@
 body {
     margin: 0;
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", 和文フォント指定, sans-serif;
 }
 
 * {
     box-sizing: border-box;
 }
+
+
+.content {
+    margin: 3rem 2rem;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.list-item {
+    margin-top: 2rem;
+}
+
+.list-title {
+    display: inline-block;
+    width: 100px;
+}
+
+.link {
+    color: #000;
+}
+
+.link-white {
+    color: #fff;
+}
+
+
 
 .footer {
     position: absolute;
@@ -53,20 +84,32 @@ body {
     animation-fill-mode: forwards;
 }
 
-.profile-term {
-    display: inline-block;
-    width: 100px;
-    margin-top: 0.5rem;
+.profile-item {
+    display: block;
+    margin-top: 1rem;
 
     &:first-child {
         margin-top: 0;
     }
 }
 
-.profile-desc {
+.profile-link {
     display: inline-block;
-    width: calc(100% - 100px - 2rem);
-    margin: 0;
+    text-indent: 1rem;
+
+    &:first-child {
+        text-indent: 0;
+    }
+}
+
+.github-logo {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+
+    img {
+        width: 60px;
+    }
 }
 
 @keyframes cutInFooter {

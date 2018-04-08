@@ -20,6 +20,16 @@ body {
 
 .list-item {
     margin-top: 2rem;
+    opacity: 0;
+    animation: 0.4s fadeIn;
+    animation-delay: 0;
+    animation-fill-mode: forwards;
+
+    @for $i from 1 to 3 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{0.8 + 0.2 * $i}s;
+        }
+    }
 }
 
 .list-title {
@@ -54,7 +64,7 @@ body {
     margin: 0;
     opacity: 0;
     top: 200px;
-    animation: 1s 1s cutInTitle;
+    animation: 1s 1.5s cutInTitle;
     animation-fill-mode: forwards;
 
     &::after {
@@ -80,7 +90,7 @@ body {
     margin: 0;
     opacity: 0;
     position: relative;
-    animation: 1s 2s cutInProfile;
+    animation: 1s 2.5s cutInProfile;
     animation-fill-mode: forwards;
 }
 
@@ -109,6 +119,16 @@ body {
 
     img {
         width: 60px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 

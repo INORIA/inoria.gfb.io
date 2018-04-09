@@ -1,0 +1,63 @@
+// https://mdbootstrap.com/components/bootstrap-hamburger-menu/
+
+.navbar .navbar-toggler {
+    border-width: 0;
+}
+
+.animated-icon1, .animated-icon2, .hamburger-animated-icon, .animated-icon4 {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    margin: 0px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.animated-icon1 span, .hamburger-animated-icon span, .animated-icon4 span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.hamburger-animated-icon span {
+    background: #e3f2fd;
+}
+
+.hamburger-animated-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger-animated-icon span:nth-child(2), .hamburger-animated-icon span:nth-child(3) {
+    top: 10px;
+}
+
+.hamburger-animated-icon span:nth-child(4) {
+    top: 20px;
+}
+
+.hamburger-animated-icon.open span:nth-child(1) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}
+
+.hamburger-animated-icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.hamburger-animated-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.hamburger-animated-icon.open span:nth-child(4) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}

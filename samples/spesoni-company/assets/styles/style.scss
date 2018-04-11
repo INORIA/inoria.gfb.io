@@ -24,7 +24,7 @@ $color-main: #333;
 
     @include media-breakpoint-down(sm) {
         height: 500px;        
-    }    
+    }
 }
 
 
@@ -32,16 +32,40 @@ $color-main: #333;
 .strength-section {
     position: relative;
     width: 100%;
-    height: 500px;
     background-color: $color-main;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.strength-item {
+    position: relative;
+    padding: 2rem 3rem;
+    width: calc(100% / 3);
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+    }
+
+    .title, .detail {
+        margin: 0;
+        color: #fff;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .detail {
+        padding-top: 1rem;
+    }
 }
 
 
 .circle-wrapper {
-    position: absolute;
-    top: 10%;
-    left: 10%;
+    position: relative;
     width: 150px;
+    margin: 50px auto 2rem auto;
 }
 
 .circle {
@@ -57,7 +81,7 @@ $color-main: #333;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    animation: rotate-infinitely 10s infinite linear;
+    animation: rotate-infinitely 40s infinite linear;
 }
 
 .circle-number {

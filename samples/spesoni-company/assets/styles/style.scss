@@ -18,12 +18,76 @@ $color-main: #333;
 .hero {
     overflow: hidden;
     width: 100%;
-    height: 900px;
+    height: 100vh;
     background-image: url("../images/MIYADSC_3425-3_TP_V.jpg");
     background-size: cover;
+    background-position: center center;
 
     @include media-breakpoint-down(sm) {
         height: 500px;        
+    }
+}
+
+
+.section {
+    position: relative;
+    padding: 50px 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 300px;
+        height: 500px;
+        background-color: #fff;
+        transform: translate(-60%, -60%) rotate(45deg);
+    }
+
+    &::after {
+        content: '';
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        display: block;
+        width: 300px;
+        height: 500px;
+        background-color: #fff;
+        transform: translate(60%, 60%) rotate(45deg);
+    }
+
+    .head {
+        position: relative;
+        text-align: center;
+        font-size: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::before {
+            content: '';
+            position: relative;
+            display: block;
+            width: 5rem;
+            height: 70px;
+            border-color: inherit;
+            border-left: solid 2px;
+            transform-origin: left center;
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            content: '';
+            position: relative;
+            display: block;
+            width: 5rem;
+            height: 70px;
+            border-color: inherit;
+            border-right: solid 2px;
+            transform-origin: right center;
+            transform: rotate(45deg);
+        }
     }
 }
 
@@ -34,8 +98,16 @@ $color-main: #333;
     width: 100%;
     background-color: $color-main;
     overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
+    padding: 50px 0;
+
+    .head {
+        color: #fff;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .strength-item {
@@ -102,5 +174,40 @@ $color-main: #333;
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+
+.topics-section {
+    background-color: #ccc;
+    overflow: hidden;
+
+    .head {
+        margin-bottom: 50px;
+    }
+
+    .topics-list {
+        margin: 30px 3rem;
+    }
+
+    .topics-item {
+        display: flex;
+        justify-content: space-between;
+        border-color: inherit;
+        border-bottom: solid 1px;
+        margin-bottom: 1rem;
+    }
+
+    .topics-date {
+        text-align: center;
+        width: 20%;
+    }
+
+    .topics-category {
+        width: 20%;
+    }
+
+    .topics-desc {
+        width: 60%;
     }
 }

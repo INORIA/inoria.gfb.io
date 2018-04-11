@@ -8,7 +8,7 @@
     "build": "npm run build-index & npm run build-samples",
     "build-index": "parcel build index.html",
     "build-samples": "npm run build-samples-spesoni",
-    "build-samples-spesoni": "parcel build ./samples/spesoni-company/index.html --out-dir 'dist/samples/spesoni-company'"
+    "build-samples-spesoni": "parcel build ./samples/spesoni-company/index.html --out-dir 'dist/samples/spesoni-company' --public-url='/samples/spesoni-company'"
   },
   "license": "MIT",
   "dependencies": {

@@ -7,3 +7,13 @@ window.addEventListener('scroll', () => {
         header.classList.remove('active');
     }
 });
+
+// fix parcel related problems
+
+[...document.querySelectorAll('.circle')].forEach(svg => {
+	svg.setAttribute('viewBox', '0 0 200 200');
+});
+
+[...document.querySelectorAll('.circle-inside')].forEach(svg => {
+	svg.setAttribute('viewBox', '0 0 150 150');
+});

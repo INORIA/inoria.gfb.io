@@ -13,9 +13,12 @@ $color-main: #333;
     left: 0;
     width: 100%;
     background-color: $color-main;
+    z-index: 100;
+    padding: 1em 0.5em;
 }
 
 .hero {
+    position: relative;
     overflow: hidden;
     width: 100%;
     height: 100vh;
@@ -23,8 +26,25 @@ $color-main: #333;
     background-size: cover;
     background-position: center center;
 
-    @include media-breakpoint-down(sm) {
-        height: 500px;        
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-text {
+        margin: 0;
+        position: absolute;
+        bottom: 0.5em;
+        left: 1em;
+        color: #ccc;
+        font-size: 2em;
+        text-transform: uppercase;
     }
 }
 
@@ -34,6 +54,11 @@ $color-main: #333;
     padding: 150px 0;
     overflow: hidden;
     width: 100%;
+    font-size: 16px;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 13px;
+    }
 
     &::before {
         content: '';
@@ -44,7 +69,11 @@ $color-main: #333;
         width: 300px;
         height: 500px;
         background-color: #fff;
-        transform: translate(-60%, -60%) rotate(45deg);
+        transform: translate(-40%, -40%) rotate(45deg);
+
+        @include media-breakpoint-down(sm) {
+            transform: translate(-60%, -60%) rotate(45deg);            
+        }
     }
 
     &::after {
@@ -57,41 +86,21 @@ $color-main: #333;
         height: 500px;
         background-color: #fff;
         transform: translate(60%, 60%) rotate(45deg);
+
+        @include media-breakpoint-down(sm) {
+            transform: translate(70%, 70%) rotate(45deg);
+        }
     }
 
     .head {
         position: relative;
         text-align: center;
-        font-size: 3rem;
+        font-size: 3em;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 2em;
         text-transform: uppercase;
-
-        &::before {
-            content: '';
-            position: relative;
-            display: block;
-            width: 5rem;
-            height: 70px;
-            border-color: inherit;
-            border-left: solid 2px;
-            transform-origin: left center;
-            transform: rotate(45deg);
-        }
-
-        &::after {
-            content: '';
-            position: relative;
-            display: block;
-            width: 5rem;
-            height: 70px;
-            border-color: inherit;
-            border-right: solid 2px;
-            transform-origin: right center;
-            transform: rotate(45deg);
-        }
     }
 }
 
@@ -108,6 +117,14 @@ $color-main: #333;
     .content {
         display: flex;
         flex-wrap: wrap;
+    }
+
+    &::before {
+        background-color: #ccc;
+    }
+
+    &::after {
+        background-color: #ccc;
     }
 }
 
@@ -181,6 +198,7 @@ $color-main: #333;
 
 .topics-section {
     background-color: #ccc;
+    padding-bottom: 250px;
 
     .head {
         margin-bottom: 50px;
@@ -210,6 +228,14 @@ $color-main: #333;
     .topics-desc {
         width: 60%;
     }
+
+    &::before {
+        background-color: $color-main;
+    }
+
+    &::after {
+        display: none;
+    }
 }
 
 
@@ -217,6 +243,11 @@ $color-main: #333;
 .contact-section {
     position: relative;
     background-color: $color-main;
+    font-size: 16px;
+
+    @include media-breakpoint-down(sm) {
+        font-size: 12px;
+    }
 
     .head {
         color: #fff;
@@ -229,6 +260,10 @@ $color-main: #333;
         display: flex;
         justify-content: space-between;
         width: 100%;
+
+        @include media-breakpoint-down(sm) {
+            padding: 0 30px;
+        }
     }
 
     .contact-name-title, .contact-email-title, .contact-text-title {
@@ -237,23 +272,31 @@ $color-main: #333;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        font-size: 1.5rem;
+        font-size: 1.5em;
     }
 
     .contact-name, .contact-email, .contact-text {
         width: 70%;
-        font-size: 1.5rem;
-        line-height: 1.5rem;
+        font-size: 1.5em;
+        line-height: 1.5em;
         padding: 1rem;
     }
 
     .contact-submit {
         display: block;
         width: 500px;
-        padding: 0.5rem;
+        padding: 0.5em;
         margin: 0 auto;
-        font-size: 1.5rem;
+        font-size: 1.5em;
         background-color: #ccc;
+
+        @include media-breakpoint-down(sm) {
+            width: 80%;
+        }
+    }
+
+    &::before {
+        display: none;
     }
 }
 
@@ -261,5 +304,13 @@ $color-main: #333;
     .conclusion-text {
         padding: 2rem 200px;
         text-align: center;
+
+        @include media-breakpoint-down(sm) {
+            padding: 2rem 30px;
+        }
+    }
+
+    &::before {
+        background-color: $color-main;
     }
 }

@@ -4,6 +4,19 @@
     border-width: 0;
 }
 
+.navbar-brand {
+    text-transform: uppercase;
+    font-size: 1.3em;
+}
+
+.navbar-nav {
+    margin-top: 2em;
+}
+
+.nav-link {
+    text-transform: uppercase;
+}
+
 .animated-icon1, .animated-icon2, .hamburger-animated-icon, .animated-icon4 {
     width: 30px;
     height: 20px;

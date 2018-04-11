@@ -31,7 +31,9 @@ $color-main: #333;
 
 .section {
     position: relative;
-    padding: 50px 0;
+    padding: 150px 0;
+    overflow: hidden;
+    width: 100%;
 
     &::before {
         content: '';
@@ -64,6 +66,8 @@ $color-main: #333;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
 
         &::before {
             content: '';
@@ -95,10 +99,7 @@ $color-main: #333;
 
 .strength-section {
     position: relative;
-    width: 100%;
     background-color: $color-main;
-    overflow: hidden;
-    padding: 50px 0;
 
     .head {
         color: #fff;
@@ -180,7 +181,6 @@ $color-main: #333;
 
 .topics-section {
     background-color: #ccc;
-    overflow: hidden;
 
     .head {
         margin-bottom: 50px;
@@ -209,5 +209,57 @@ $color-main: #333;
 
     .topics-desc {
         width: 60%;
+    }
+}
+
+
+
+.contact-section {
+    position: relative;
+    background-color: $color-main;
+
+    .head {
+        color: #fff;
+    }
+
+    .contact-form {
+        color: #fff;
+        margin: 70px 0;
+        padding: 0 200px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .contact-name-title, .contact-email-title, .contact-text-title {
+        width: 30%;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+
+    .contact-name, .contact-email, .contact-text {
+        width: 70%;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        padding: 1rem;
+    }
+
+    .contact-submit {
+        display: block;
+        width: 500px;
+        padding: 0.5rem;
+        margin: 0 auto;
+        font-size: 1.5rem;
+        background-color: #ccc;
+    }
+}
+
+.conclusion-section {
+    .conclusion-text {
+        padding: 2rem 200px;
+        text-align: center;
     }
 }

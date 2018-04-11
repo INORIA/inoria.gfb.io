@@ -15,6 +15,12 @@ $color-main: #333;
     background-color: $color-main;
     z-index: 100;
     padding: 1em 0.5em;
+    transition: opacity 0.3s;
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+    }
 }
 
 .hero {

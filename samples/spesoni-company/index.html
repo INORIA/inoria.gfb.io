@@ -16,16 +16,18 @@
     <header class="main-header">
 
         <nav class="navbar navbar-dark red lighten-1">
-            <a class="navbar-brand" href="#">Spesoni</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent23" aria-controls="navbarSupportedContent23"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <div class="hamburger-animated-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
+            <div class="navbar-wrapper">
+                <a class="navbar-brand" href="#">Spesoni</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent23" aria-controls="navbarSupportedContent23"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="hamburger-animated-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>        
+            </div>
 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent23">
@@ -136,20 +138,22 @@
         <h2 class="head">Contact</h2>
 
         <form>
-            <div class="contact-form">
-                <label for="name" class="contact-name-title">お名前:</label>
-                <input class="contact-name" id="name" type="text" name="name" />
+            <div class="contact-form-wrapper">
+                <div class="contact-form">
+                        <label for="name" class="contact-name-title">お名前:</label>
+                        <input class="contact-name" id="name" type="text" name="name" />
+                    </div>
+                    <div class="contact-form">
+                        <label for="email" class="contact-email-title">メールアドレス:</label>
+                        <input class="contact-email" id="email" type="text" name="email" />
+                    </div>
+                    <div class="contact-form">
+                        <label for="name" class="contact-text-title">お名前:</label>
+                        <textarea class="contact-text" name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+        
+                    <button class="contact-submit" type="submit" disabled>送信</button>            
             </div>
-            <div class="contact-form">
-                <label for="email" class="contact-email-title">メールアドレス:</label>
-                <input class="contact-email" id="email" type="text" name="email" />
-            </div>
-            <div class="contact-form">
-                <label for="name" class="contact-text-title">お名前:</label>
-                <textarea class="contact-text" name="" id="" cols="30" rows="10"></textarea>
-            </div>
-
-            <button class="contact-submit" type="submit" disabled>送信</button>
         </form>
     </section>
 

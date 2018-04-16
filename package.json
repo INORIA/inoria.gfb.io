@@ -5,7 +5,8 @@
   "scripts": {
     "start": "parcel index.html",
     "start-samples-spesoni": "parcel ./samples/spesoni-company/index.html",
-    "build": "npm run build-index & npm run build-samples",
+    "start-samples-webgl": "parcel ./samples/webgl/index.html",
+    "build": "npm run build-index & npm run build-samples --public-url='/samples/webgl'",
     "build-index": "parcel build index.html",
     "build-samples": "npm run build-samples-spesoni",
     "build-samples-spesoni": "parcel build ./samples/spesoni-company/index.html --out-dir 'dist/samples/spesoni-company' --public-url='/samples/spesoni-company'"

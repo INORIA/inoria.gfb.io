@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "pixi-particles": "^3.0.0",
     "pixi.js": "^4.7.3"
   }
 }

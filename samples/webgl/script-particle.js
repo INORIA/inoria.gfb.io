@@ -16,6 +16,21 @@ let app = new PIXI.Application({
 
 const container = new PIXI.Container()
 
+const setup = () => {
+    app.stage.interactive = true
+    app.stage.width = 500
+    app.stage.height = 500
+    app.stage.on('pointerdown', () => {
+        console.log('pointerdown')
+    })
+
+    app.renderer.plugins.interaction.on('click', () => {
+        console.log('hoge')
+    })
+}
+
+PIXI.loader.load(setup)
+
 const emitter = new PIXI.particles.Emitter(
     container,
     [PIXI.Texture.fromImage(bubble)],
@@ -30,8 +45,8 @@ const emitter = new PIXI.particles.Emitter(
             "minimumScaleMultiplier": 1
         },
         "color": {
-            "start": "#e4f9ff",
-            "end": "#3fcbff"
+            "start": "#6bff61",
+            "end": "#d8ff4a"
         },
         "speed": {
             "start": 600,
@@ -134,7 +149,8 @@ let gasEmitter = new PIXI.particles.Emitter(
 
 let elapsed = Date.now()
 
-emitter.emit = true
+emitter.emit = false
+gasEmitter.emit = true
 
 const update = () => {
     requestAnimationFrame(update);
@@ -143,7 +159,7 @@ const update = () => {
     const now = Date.now()
 
     emitter.updateSpawnPos(mouseposition.x, mouseposition.y)
-    emitter.update((now - elapsed) * 0.001);
+    emitter.update((now - elapsed) * 0.001);            
 
     gasEmitter.updateSpawnPos(mouseposition.x, mouseposition.y)
     gasEmitter.update((now - elapsed) * 0.001)    
@@ -155,4 +171,16 @@ const update = () => {
 
 update()
 
+app.view.addEventListener('mousedown', () => {
+    emitter.emit = true
+})
+app.view.addEventListener('mouseup', () => {
+    emitter.emit = false
+})
+
+// remove existing canvas to avoid duplication
+const existing = document.querySelector('.app')
+existing && existing.remove()
+
+app.view.classList.add('app')
 document.body.appendChild(app.view)

@@ -1,7 +1,9 @@
 import * as PIXI from 'pixi.js'
 import 'pixi-particles'
 
-import bubble from './Bubbles99px.png';
+import bubble from './images/Bubbles99px.png';
+import particle from './images/particle.png';
+import smoke from './images/smokeparticle.png';
 
 let app = new PIXI.Application({
     width: window.innerWidth, 
@@ -72,6 +74,64 @@ const emitter = new PIXI.particles.Emitter(
     }
 )
 
+let gasEmitter = new PIXI.particles.Emitter(
+    container,
+    [PIXI.Texture.fromImage(particle), PIXI.Texture.fromImage(smoke)],
+    {
+        "alpha": {
+            "start": 0.4,
+            "end": 0
+        },
+        "scale": {
+            "start": 2,
+            "end": 0.4,
+            "minimumScaleMultiplier": 1
+        },
+        "color": {
+            "start": "#6bff61",
+            "end": "#d8ff4a"
+        },
+        "speed": {
+            "start": 10,
+            "end": 10,
+            "minimumSpeedMultiplier": 1
+        },
+        "acceleration": {
+            "x": 0,
+            "y": 0
+        },
+        "maxSpeed": 0,
+        "startRotation": {
+            "min": 0,
+            "max": 360
+        },
+        "noRotation": false,
+        "rotationSpeed": {
+            "min": 0,
+            "max": 0
+        },
+        "lifetime": {
+            "min": 2,
+            "max": 1.8
+        },
+        "blendMode": "screen",
+        "frequency": 0.01,
+        "emitterLifetime": -1,
+        "maxParticles": 1000,
+        "pos": {
+            "x": 0.5,
+            "y": 0.5
+        },
+        "addAtBack": true,
+        "spawnType": "circle",
+        "spawnCircle": {
+            "x": 0,
+            "y": 0,
+            "r": 150
+        }
+    }
+)
+
 let elapsed = Date.now()
 
 emitter.emit = true
@@ -82,8 +142,11 @@ const update = () => {
     const mouseposition = app.renderer.plugins.interaction.mouse.global
     const now = Date.now()
 
-    emitter.updateSpawnPos(mouseposition.x, mouseposition.y)    
+    emitter.updateSpawnPos(mouseposition.x, mouseposition.y)
     emitter.update((now - elapsed) * 0.001);
+
+    gasEmitter.updateSpawnPos(mouseposition.x, mouseposition.y)
+    gasEmitter.update((now - elapsed) * 0.001)    
 
     elapsed = now
 

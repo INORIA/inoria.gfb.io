@@ -1,9 +1,13 @@
 import * as PIXI from 'pixi.js'
 import 'pixi-particles'
 
-import bubble from './images/Bubbles99px.png';
-import particle from './images/particle.png';
-import smoke from './images/smokeparticle.png';
+import circlesConfig from './circles.json'
+
+import bubble from './images/Bubbles99px.png'
+import particle from './images/particle.png'
+import smoke from './images/smokeparticle.png'
+import circleFill from './images/circle.png'
+import circleStroke from './images/circle-in.png'
 
 let app = new PIXI.Application({
     width: window.innerWidth, 
@@ -13,6 +17,8 @@ let app = new PIXI.Application({
     transparent: false,
     resolution: 1
 })
+
+console.log(circlesConfig)
 
 const container = new PIXI.Container()
 
@@ -147,22 +153,32 @@ let gasEmitter = new PIXI.particles.Emitter(
     }
 )
 
+const circlesEmitter = new PIXI.particles.Emitter(
+    container,
+    [PIXI.Texture.fromImage(circleFill), PIXI.Texture.fromImage(circleStroke)],
+    circlesConfig
+)
+
 let elapsed = Date.now()
 
 emitter.emit = false
+circlesEmitter.emit = false
 gasEmitter.emit = true
 
 const update = () => {
-    requestAnimationFrame(update);
+    requestAnimationFrame(update)
 
     const mouseposition = app.renderer.plugins.interaction.mouse.global
     const now = Date.now()
 
     emitter.updateSpawnPos(mouseposition.x, mouseposition.y)
-    emitter.update((now - elapsed) * 0.001);            
+    emitter.update((now - elapsed) * 0.001)    
 
     gasEmitter.updateSpawnPos(mouseposition.x, mouseposition.y)
-    gasEmitter.update((now - elapsed) * 0.001)    
+    gasEmitter.update((now - elapsed) * 0.001)
+
+    circlesEmitter.updateSpawnPos(mouseposition.x, mouseposition.y)
+    circlesEmitter.update((now - elapsed) * 0.001)
 
     elapsed = now
 
@@ -173,9 +189,11 @@ update()
 
 app.view.addEventListener('mousedown', () => {
     emitter.emit = true
+    circlesEmitter.emit = true
 })
 app.view.addEventListener('mouseup', () => {
     emitter.emit = false
+    circlesEmitter.emit = false
 })
 
 // remove existing canvas to avoid duplication
